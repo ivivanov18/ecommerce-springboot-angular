@@ -23,6 +23,9 @@ public class Product {
     @Column(name = "sku")
     private String sku;
 
+    @Column(name="unit_price")
+    private Double unitPrice;
+
     @Column(name = "name")
     private String name;
 
