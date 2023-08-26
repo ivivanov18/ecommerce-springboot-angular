@@ -8,13 +8,15 @@ import { Product } from '../common/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:8080/api/products?size=100';
+  private baseUrl = 'http://localhost:8080/api/products';
 
   constructor(private httpClient: HttpClient) {}
 
-  getProductsList(): Observable<Product[]> {
+  getProductsList(categoryId: number): Observable<Product[]> {
+    const url = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}&size=100`;
+
     return this.httpClient
-      .get<GetReponse>(this.baseUrl)
+      .get<GetReponse>(url)
       .pipe(map((response) => response._embedded.products));
   }
 }

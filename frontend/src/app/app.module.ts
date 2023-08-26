@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 
+import routes from './routes';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [AppComponent, ProductListComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [RouterModule.forRoot(routes), BrowserModule, HttpClientModule],
   providers: [ProductService],
   bootstrap: [AppComponent],
 })
